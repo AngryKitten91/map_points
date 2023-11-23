@@ -11,6 +11,8 @@ body {
 }
 
 .content {
+  box-sizing: border-box;
+  padding: 50px;
   max-width: 800px;
   margin: 0 auto;
   height: 100dvh;
