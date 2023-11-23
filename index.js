@@ -31,7 +31,7 @@ window.onload = function () {
 
   const limitX = 1000;
   const limitY = 948;
-  const safeBuffer = 60;
+  const safeBuffer = 30;
 
   // svgElement.addEventListener("click", function (e) {
   //   console.log(e.target);
@@ -108,8 +108,8 @@ window.onload = function () {
 
     while (!isCoordRight) {
       // let X = Math.random() * limitX;
-      let X = rand(safeBuffer, limitX) - safeBuffer;
-      let Y = rand(safeBuffer, limitY) - safeBuffer;
+      let X = rand(safeBuffer, limitX - safeBuffer);
+      let Y = rand(safeBuffer, limitY - safeBuffer);
       // let Y = Math.random() * limitY;
       let point = createSVGPoint(svgElement, X, Y);
 
@@ -117,7 +117,8 @@ window.onload = function () {
         let check = isPointInsideObject(elem, point);
         if (check === true) {
           isCoordRight = true;
-          return createCircle(svgElement, point, 30, color);
+          let okCircle = createCircle(svgElement, point, 30, color);
+          return okCircle;
         }
         counter++;
       });
@@ -181,3 +182,8 @@ window.onload = function () {
     return array;
   }
 };
+
+function rand(lowest, highest) {
+  let adjustedHigh = highest - lowest + 1;
+  return Math.floor(Math.random() * adjustedHigh) + parseFloat(lowest);
+}
