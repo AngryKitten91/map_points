@@ -1,4 +1,10 @@
 svg {
+  display: block;
+  max-height: 100dvh;
+  width: auto;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 body {
@@ -12,7 +18,7 @@ body {
 
 .content {
   box-sizing: border-box;
-  padding: 50px;
+  /* padding: 80px; */
   max-width: 800px;
   margin: 0 auto;
   height: 100dvh;
@@ -74,7 +80,7 @@ button {
   font-weight: bolder;
 }
 
-/* make keyframes that tell the start state and the end state of our object */
+/* Animations / keyframes */
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0;
@@ -110,9 +116,9 @@ button {
   -moz-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 
-  -webkit-animation-duration: 0.5s;
-  -moz-animation-duration: 0.5s;
-  animation-duration: 0.5s;
+  -webkit-animation-duration: 0.7s;
+  -moz-animation-duration: 0.7s;
+  animation-duration: 0.7s;
 
   /* -webkit-animation-delay: 0.5s;
   -moz-animation-delay: 0.5s;

@@ -122,7 +122,7 @@ window.onload = function () {
     circle.setAttribute("r", 15 + Math.floor(Math.random() * (radius - 15)));
     circle.setAttribute("fill", color); // Ustaw kolor wypełnienia okręgu
     circle.setAttribute("stroke", "#000"); // Ustaw kolor wypełnienia okręgu
-    circle.classList.add("fade-in", "pulse");
+    circle.classList.add("fade-in");
     svgElement.appendChild(circle);
   }
 
