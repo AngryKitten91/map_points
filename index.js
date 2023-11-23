@@ -31,6 +31,7 @@ window.onload = function () {
 
   const limitX = 1000;
   const limitY = 948;
+  const safeBuffer = 60;
 
   // svgElement.addEventListener("click", function (e) {
   //   console.log(e.target);
@@ -74,17 +75,31 @@ window.onload = function () {
     } else if (title[index] === "Shrek") {
       newColor = "#c5ee7d";
     }
-
-    let btnScheme = `<div class="button-wrapper">
-    <p class="team-title">${title[index].toUpperCase()}</p>
-    <div class="flex">
-    <button style="background-color:${newColor}" data-score="score${index}" data-color="${newColor}" class="btn">
+    if (index < 5) {
+      let leftBtnScheme = `<div class="button-wrapper">
+      <p class="team-title" style="text-shadow: 1px 1px 0 ${newColor};">${title[
+        index
+      ].toUpperCase()}</p>
+      <div class="flex">
+      <button style="background-color:${newColor}" data-score="score${index}" data-color="${newColor}" class="btn glow-on-hover">
+        ADD
+      </button>
+      <p id="score${index}" class="score">0</p>
+      </div>
+      </div>`;
+      return leftBtnScheme;
+    } else {
+      let rightBtnScheme = `<div class="button-wrapper">
+      <p class="team-title">${title[index].toUpperCase()}</p>
+      <div class="flex">
+      <p id="score${index}" class="score">0</p>
+      <button style="background-color:${newColor}" data-score="score${index}" data-color="${newColor}" class="btn glow-on-hover">
       ADD
-    </button>
-    <p id="score${index}" class="score">0</p>
-    </div>
-    </div>`;
-    return btnScheme;
+      </button>
+      </div>
+      </div>`;
+      return rightBtnScheme;
+    }
   }
 
   function createInsideCircle(svgElement, limitX, limitY, color) {
@@ -93,8 +108,8 @@ window.onload = function () {
 
     while (!isCoordRight) {
       // let X = Math.random() * limitX;
-      let X = rand(0, limitX);
-      let Y = rand(0, limitY);
+      let X = rand(safeBuffer, limitX) - safeBuffer;
+      let Y = rand(safeBuffer, limitY) - safeBuffer;
       // let Y = Math.random() * limitY;
       let point = createSVGPoint(svgElement, X, Y);
 
@@ -131,6 +146,7 @@ window.onload = function () {
     circle.setAttribute("r", 15 + Math.floor(Math.random() * (radius - 15)));
     circle.setAttribute("fill", color); // Ustaw kolor wypełnienia okręgu
     circle.setAttribute("stroke", "#000"); // Ustaw kolor wypełnienia okręgu
+    circle.setAttribute("stroke-width", "5"); // Ustaw kolor wypełnienia okręgu
     circle.classList.add("fade-in");
     svgElement.appendChild(circle);
   }
