@@ -26,6 +26,8 @@ window.onload = function () {
   const svgElement = document.getElementById("poland"); // Zmień 'mojSvg' na id swojego elementu SVG
   const svgPath = document.querySelectorAll(".path");
   const btnContainer = document.querySelector(".button-cointainer");
+  const btnContainerLeft = document.querySelector(".fixed-left");
+  const btnContainerRight = document.querySelector(".fixed-right");
 
   const limitX = 1000;
   const limitY = 948;
@@ -37,8 +39,15 @@ window.onload = function () {
   // ! CREATE BUTTONS
   let titles = shuffle(teamNames);
   colorArray.forEach(function (e, i) {
-    const newBtn = createButtons(e, i, titles);
-    btnContainer.innerHTML += newBtn;
+    if (i < 5) {
+      const newBtn = createButtons(e, i, titles);
+      btnContainerLeft.innerHTML += newBtn;
+    } else {
+      const newBtn = createButtons(e, i, titles);
+      btnContainerRight.innerHTML += newBtn;
+    }
+    // const newBtn = createButtons(e, i, titles);
+    // btnContainer.innerHTML += newBtn;
   });
 
   // * ADD EVENT LISTENER TO BUTTONS
@@ -66,7 +75,7 @@ window.onload = function () {
       newColor = "#c5ee7d";
     }
 
-    let btnScheme = `<div class="button-wrapper child">
+    let btnScheme = `<div class="button-wrapper">
     <p class="team-title">${title[index].toUpperCase()}</p>
     <div class="flex">
     <button style="background-color:${newColor}" data-score="score${index}" data-color="${newColor}" class="btn">

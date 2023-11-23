@@ -32,9 +32,23 @@ body {
   /* margin: 30px; */
   width: 100%;
 }
+.fixed-left {
+  width: 200px;
+  height: 100dvh;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+.fixed-right {
+  width: 200px;
+  height: 100dvh;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
 
 .button-wrapper {
-  margin: 10px 0;
+  /* margin: 20px 0; */
 }
 
 .flex {
@@ -42,6 +56,12 @@ body {
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .child {
