@@ -183,7 +183,7 @@ window.onload = function () {
   }
 };
 
-function rand(lowest, highest) {
-  let adjustedHigh = highest - lowest + 1;
-  return Math.floor(Math.random() * adjustedHigh) + parseFloat(lowest);
-}
+// function rand(lowest, highest) {
+//   let adjustedHigh = highest - lowest + 1;
+//   return Math.floor(Math.random() * adjustedHigh) + parseFloat(lowest);
+// }
