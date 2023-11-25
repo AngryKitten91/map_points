@@ -25,6 +25,7 @@ window.onload = function () {
   ];
 
   let circlesCollection = {};
+  let colorDeclaration = {};
   const svgElement = document.getElementById("poland"); // Zmień 'mojSvg' na id swojego elementu SVG
   const svgPath = document.querySelectorAll(".path");
   // const btnContainer = document.querySelector(".button-cointainer");
@@ -57,6 +58,7 @@ window.onload = function () {
       btnContainerRight.innerHTML += newBtn;
     }
   });
+  console.log(colorDeclaration);
 
   // * ADD EVENT LISTENER TO PLUS BUTTONS
   const btnPlus = document.querySelectorAll(".btn-plus");
@@ -74,11 +76,11 @@ window.onload = function () {
         const actualScore = circlesCollection[name]
           ? circlesCollection[name].length
           : 0;
-        let value = Number(paragraph.innerText) + 1;
         paragraph.innerText = actualScore;
-        // console.log(value);
-        console.log(actualScore);
         svgElement.lastChild.classList.add("circle-regular");
+        // let value = Number(paragraph.innerText) + 1;
+        // console.log(value);
+        // console.log(actualScore);
       }
     });
   });
@@ -90,16 +92,21 @@ window.onload = function () {
     elem.addEventListener("click", function (e) {
       const targetName = e.target.dataset.name;
       const score = e.target.dataset.score;
-
       let paragraph = document.getElementById(score);
-      let targetCollection = circlesCollection[targetName];
 
-      if (targetCollection && targetCollection.length > 0) {
-        let lastElement = targetCollection.pop();
-        lastElement.classList.remove("fade-in");
-        lastElement.classList.add("fade-out");
+      let targetCollection = circlesCollection[targetName];
+      // console.log(circlesCollection[targetName][0].classList);
+
+      if (
+        targetCollection &&
+        targetCollection.length > 0 &&
+        targetCollection[targetCollection.length - 1].classList[1] !==
+          "circle-black"
+      ) {
+        let removeLastElement = targetCollection.pop();
+        removeLastElement.classList.add("fade-out");
         setTimeout(function () {
-          lastElement.remove();
+          removeLastElement.remove();
         }, 1000);
         const actualScore = circlesCollection[targetName]
           ? circlesCollection[targetName].length
@@ -117,8 +124,9 @@ window.onload = function () {
       if (circlesCollection[target]) {
         circlesCollection[target].forEach(function (element) {
           if (element.getAttribute("fill") !== colorBlack) {
-            element.setAttribute("stroke", colorRed);
-            element.setAttribute("fill", colorRed);
+            // element.setAttribute("stroke", colorRed);
+            // element.setAttribute("fill", colorRed);
+            element.classList.add("highlight");
           }
         });
       }
@@ -133,18 +141,18 @@ window.onload = function () {
       if (circlesCollection[target]) {
         circlesCollection[target].forEach(function (element) {
           if (element.getAttribute("fill") !== colorBlack) {
-            element.setAttribute("stroke", colorBlack);
-            element.setAttribute("fill", color);
+            // element.setAttribute("stroke", colorBlack);
+            // element.setAttribute("fill", color);
+            element.classList.remove("highlight");
           }
         });
       }
     });
   });
 
-  // * Color change
+  // * Z attack - color change
   document.addEventListener("keyup", (event) => {
     if (event.code === "KeyZ") {
-      // console.log(event.code);
       switchColors(circlesCollection);
     }
   });
@@ -153,12 +161,16 @@ window.onload = function () {
     let keys = Object.keys(object);
     keys.forEach(function (team) {
       object[team].forEach(function (e) {
-        if (e.getAttribute("stroke") === colorRed) {
-        } else {
-          // svgElement.removeChild(e);
+        const color = e.getAttribute("fill");
+        // const stroke = e.getAttribute("stroke");
+        if (color !== colorBlack) {
           setTimeout(function () {
+            e.setAttribute("stroke", colorDeclaration[team]);
+            e.setAttribute("fill", colorBlack);
             e.classList.add("circle-black");
           }, rand(500, 1000));
+        } else {
+          // svgElement.removeChild(e);
         }
       });
     });
@@ -171,6 +183,7 @@ window.onload = function () {
     } else if (title[index] === "Shrek") {
       newColor = colorShrek;
     }
+    colorDeclaration[title[index]] = newColor;
     if (index < 5) {
       let leftBtnScheme = `<div class="button-wrapper">
       <p class="team-title title-left" data-name="${
