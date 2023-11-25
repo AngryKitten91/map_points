@@ -27,7 +27,7 @@ window.onload = function () {
   let circlesCollection = {};
   const svgElement = document.getElementById("poland"); // Zmień 'mojSvg' na id swojego elementu SVG
   const svgPath = document.querySelectorAll(".path");
-  const btnContainer = document.querySelector(".button-cointainer");
+  // const btnContainer = document.querySelector(".button-cointainer");
   const btnContainerLeft = document.querySelector(".fixed-left");
   const btnContainerRight = document.querySelector(".fixed-right");
 
@@ -39,14 +39,14 @@ window.onload = function () {
   //   console.log(e.target);
   //   console.log(isPointInsideObject(e.target, point));
   // });
-  // ! CREATE BUTTONS
+
+  // * CREATE BUTTONS
   let titles = shuffle(teamNames);
   colorArray.forEach(function (e, i) {
+    const newBtn = createButtons(e, i, titles);
     if (i < 5) {
-      const newBtn = createButtons(e, i, titles);
       btnContainerLeft.innerHTML += newBtn;
     } else {
-      const newBtn = createButtons(e, i, titles);
       btnContainerRight.innerHTML += newBtn;
     }
     // const newBtn = createButtons(e, i, titles);
@@ -66,12 +66,14 @@ window.onload = function () {
         paragraph.innerText = value;
         // console.log(value);
         createInsideCircle(svgElement, limitX, limitY, color, e);
+        svgElement.lastChild.classList.add("circle-regular");
       }
     });
   });
 
   // * highlight on hover
-  btn.forEach(function (elem) {
+  const teamTitle = document.querySelectorAll(".team-title");
+  teamTitle.forEach(function (elem) {
     elem.addEventListener("mouseenter", function (e) {
       let target = e.target.dataset.name;
       if (circlesCollection[target]) {
@@ -86,7 +88,7 @@ window.onload = function () {
   });
 
   // * Remove highlight
-  btn.forEach(function (elem) {
+  teamTitle.forEach(function (elem) {
     elem.addEventListener("mouseleave", function (e) {
       let target = e.target.dataset.name;
       let color = e.target.dataset.color;
@@ -115,12 +117,9 @@ window.onload = function () {
       object[team].forEach(function (e) {
         if (e.getAttribute("stroke") === "red") {
         } else {
-          svgElement.removeChild(e);
-          e.setAttribute("r", "50");
-          e.setAttribute("fill", "#000");
-          e.setAttribute("stroke", "red");
+          // svgElement.removeChild(e);
           setTimeout(function () {
-            svgElement.appendChild(e);
+            e.classList.add("circle-black");
           }, rand(500, 1000));
         }
       });
@@ -136,14 +135,16 @@ window.onload = function () {
     }
     if (index < 5) {
       let leftBtnScheme = `<div class="button-wrapper">
-      <p class="team-title" style="text-shadow: 1px 1px 0 ${newColor};">${title[
+      <p class="team-title" data-name="${
+        title[index]
+      }" data-score="score${index}" data-color="${newColor}" style="text-shadow: 1px 1px 0 ${newColor};">${title[
         index
       ].toUpperCase()}</p>
       <div class="flex">
       <button style="background-color:${newColor}" data-name="${
         title[index]
       }" data-score="score${index}" data-color="${newColor}" class="btn glow-on-hover">
-        ADD
+        +
       </button>
       <p id="score${index}" class="score">0</p>
       </div>
@@ -151,13 +152,17 @@ window.onload = function () {
       return leftBtnScheme;
     } else {
       let rightBtnScheme = `<div class="button-wrapper">
-      <p class="team-title">${title[index].toUpperCase()}</p>
+      <p class="team-title" data-name="${
+        title[index]
+      }" data-score="score${index}" data-color="${newColor}" style="text-shadow: 1px 1px 0 ${newColor};">${title[
+        index
+      ].toUpperCase()}</p>
       <div class="flex">
       <p id="score${index}" class="score">0</p>
       <button style="background-color:${newColor}" data-name="${
         title[index]
       }" data-score="score${index}" data-color="${newColor}" class="btn glow-on-hover">
-      ADD
+      +
       </button>
       </div>
       </div>`;
@@ -215,11 +220,12 @@ window.onload = function () {
     );
     circle.setAttribute("cx", punktSVG.x);
     circle.setAttribute("cy", punktSVG.y);
-    circle.setAttribute("r", 15 + Math.floor(Math.random() * (radius - 15)));
+    // circle.setAttribute("r", 15 + Math.floor(Math.random() * (radius - 15)));
+    circle.setAttribute("r", 0);
     circle.setAttribute("fill", color); // Ustaw kolor wypełnienia okręgu
     circle.setAttribute("stroke", "#000"); // Ustaw kolor wypełnienia okręgu
-    circle.setAttribute("stroke-width", "5"); // Ustaw kolor wypełnienia okręgu
-    circle.classList.add("fade-in");
+    circle.setAttribute("stroke-width", "0"); // Ustaw kolor wypełnienia okręgu
+    // circle.classList.add("fade-in");
     svgElement.appendChild(circle);
     return circle;
   }
