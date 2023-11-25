@@ -37,10 +37,24 @@ body {
   overflow-y: hidden;
   font-family: "Roboto", sans-serif;
   background-image: url(./img/pexels-miguel-á-padriñán-255379.jpg);
+  /* background-color: gray; */
   background-size: cover;
   backdrop-filter: brightness(140%);
   /* background-color: #000;
   color: #fff; */
+}
+
+.color-info {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 0 15px;
+  padding-top: 3px;
+  box-sizing: border-box;
+}
+
+.inline {
+  display: inline-block;
 }
 
 .full {
@@ -81,6 +95,16 @@ body {
 
 .button-container {
   z-index: 999999999999999999999999999999999999999;
+}
+
+.flex-start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .flex {

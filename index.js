@@ -36,6 +36,8 @@ window.onload = function () {
   const colorRed = "red";
   const colorShrek = "#c5ee7d";
   const colorBarbie = "#E0218A";
+  const addButtonColor = "#28B463";
+  const minusButtonColor = "#E74C3C";
 
   const pointLimit = 15;
   const sideButtonLimit = 5;
@@ -186,18 +188,21 @@ window.onload = function () {
     colorDeclaration[title[index]] = newColor;
     if (index < 5) {
       let leftBtnScheme = `<div class="button-wrapper">
-      <p class="team-title title-left" data-name="${
+      <div class="flex-start">
+      <div style="background-color:${newColor}" class="color-info "></div>
+      <p class="team-title title-left " data-name="${
         title[index]
-      }" data-score="score${index}" data-color="${newColor}" style="text-shadow: 1px 1px 0 ${newColor};">${title[
+      }" data-score="score${index}" data-color="${newColor}">${title[
         index
       ].toUpperCase()}</p>
+      </div>
       <div class="flex">
-      <button style="background-color:${newColor}" data-name="${
+      <button style="background-color:${minusButtonColor}" data-name="${
         title[index]
       }" data-score="score${index}" data-color="${newColor}" class="btn btn-minus glow-on-hover">
         -
       </button>
-      <button style="background-color:${newColor}" data-name="${
+      <button style="background-color:${addButtonColor}" data-name="${
         title[index]
       }" data-score="score${index}" data-color="${newColor}" class="btn btn-plus glow-on-hover">
         +
@@ -208,19 +213,22 @@ window.onload = function () {
       return leftBtnScheme;
     } else {
       let rightBtnScheme = `<div class="button-wrapper">
-      <p class="team-title title-right" data-name="${
+      <div class="flex-end">
+      <p class="team-title title-left" data-name="${
         title[index]
-      }" data-score="score${index}" data-color="${newColor}" style="text-shadow: 1px 1px 0 ${newColor};">${title[
+      }" data-score="score${index}" data-color="${newColor}">${title[
         index
       ].toUpperCase()}</p>
+      <div style="background-color:${newColor}" class="color-info"></div>
+      </div>
       <div class="flex">
       <p id="score${index}" class="score">0</p>
-      <button style="background-color:${newColor}" data-name="${
+      <button style="background-color:${addButtonColor}" data-name="${
         title[index]
       }" data-score="score${index}" data-color="${newColor}" class="btn btn-plus glow-on-hover">
       +
       </button>
-      <button style="background-color:${newColor}" data-name="${
+      <button style="background-color:${minusButtonColor}" data-name="${
         title[index]
       }" data-score="score${index}" data-color="${newColor}" class="btn btn-minus glow-on-hover">
         -
