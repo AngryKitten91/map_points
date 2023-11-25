@@ -169,6 +169,7 @@ window.onload = function () {
           setTimeout(function () {
             e.setAttribute("stroke", colorDeclaration[team]);
             e.setAttribute("fill", colorBlack);
+            e.classList.remove("highlight");
             e.classList.add("circle-black");
           }, rand(500, 1000));
         } else {
