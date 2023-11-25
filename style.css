@@ -13,20 +13,19 @@ circle {
   fill-opacity: 0.7;
 }
 .circle-black {
-  r: 50 !important;
+  r: 50px !important;
   fill: #000;
   stroke: red;
   fill-opacity: 1;
   transition: ease 1s;
+  animation-fill-mode: forwards;
 }
 
 .circle-regular {
-  r: 20;
+  r: 20px;
   stroke-width: 5;
   transition: ease 1s;
-}
-
-circle {
+  animation-fill-mode: forwards;
 }
 
 body {
