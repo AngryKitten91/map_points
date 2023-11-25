@@ -61,14 +61,14 @@ body {
   width: 100%;
 }
 .fixed-left {
-  width: 200px;
+  width: 250px;
   height: 100dvh;
   position: fixed;
   left: 0;
   top: 0;
 }
 .fixed-right {
-  width: 200px;
+  width: 250px;
   height: 100dvh;
   position: fixed;
   right: 0;
@@ -108,17 +108,24 @@ body {
 .btn {
   cursor: pointer;
   font-weight: 900;
+  margin: 10px;
 }
 
 .team-title {
   font-size: 24px;
   font-weight: 900;
-  text-align: center;
+  /* text-align: center; */
   font-weight: bold;
-  margin: 0 0 10px 0;
+  margin: 0 15px;
 }
 .team-title:hover {
   cursor: pointer;
+}
+.title-left {
+  text-align: left;
+}
+.title-right {
+  text-align: right;
 }
 
 .score {
@@ -138,7 +145,7 @@ body {
 button {
   color: #000;
   box-sizing: border-box;
-  padding: 10px 50px;
+  padding: 8px 20px;
   border-radius: 20px;
   border: none;
   font-weight: bolder;
@@ -218,9 +225,9 @@ button {
 
 .fade-out {
   opacity: 1; /* make things invisible upon start */
-  -webkit-animation: fadeIn ease-in 1; /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
-  -moz-animation: fadeIn ease-in 1;
-  animation: fadeIn ease-in 1;
+  -webkit-animation: fadeOut ease-in 1; /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation: fadeOut ease-in 1;
+  animation: fadeOut ease-in 1;
 
   -webkit-animation-fill-mode: forwards; /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
   -moz-animation-fill-mode: forwards;

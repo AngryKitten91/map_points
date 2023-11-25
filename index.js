@@ -31,6 +31,13 @@ window.onload = function () {
   const btnContainerLeft = document.querySelector(".fixed-left");
   const btnContainerRight = document.querySelector(".fixed-right");
 
+  const colorBlack = "#000";
+  const colorRed = "red";
+  const colorShrek = "#c5ee7d";
+  const colorBarbie = "#E0218A";
+
+  const pointLimit = 15;
+  const sideButtonLimit = 5;
   const limitX = 1000;
   const limitY = 948;
   const safeBuffer = 50;
@@ -44,29 +51,60 @@ window.onload = function () {
   let titles = shuffle(teamNames);
   colorArray.forEach(function (e, i) {
     const newBtn = createButtons(e, i, titles);
-    if (i < 5) {
+    if (i < sideButtonLimit) {
       btnContainerLeft.innerHTML += newBtn;
     } else {
       btnContainerRight.innerHTML += newBtn;
     }
-    // const newBtn = createButtons(e, i, titles);
-    // btnContainer.innerHTML += newBtn;
   });
 
-  // * ADD EVENT LISTENER TO BUTTONS
-  const btn = document.querySelectorAll(".btn");
+  // * ADD EVENT LISTENER TO PLUS BUTTONS
+  const btnPlus = document.querySelectorAll(".btn-plus");
 
-  btn.forEach(function (elem) {
+  btnPlus.forEach(function (elem) {
     elem.addEventListener("click", function (e) {
       const color = e.target.dataset.color;
       const score = e.target.dataset.score;
+      const name = e.target.dataset.name;
+
       let paragraph = document.getElementById(score);
-      if (+paragraph.innerText < 15) {
-        let value = Number(paragraph.innerText) + 1;
-        paragraph.innerText = value;
-        // console.log(value);
+
+      if (+paragraph.innerText < pointLimit) {
         createInsideCircle(svgElement, limitX, limitY, color, e);
+        const actualScore = circlesCollection[name]
+          ? circlesCollection[name].length
+          : 0;
+        let value = Number(paragraph.innerText) + 1;
+        paragraph.innerText = actualScore;
+        // console.log(value);
+        console.log(actualScore);
         svgElement.lastChild.classList.add("circle-regular");
+      }
+    });
+  });
+
+  // * ADD EVENT LISTENER TO MINUS BUTTONS
+  const brtnMinus = document.querySelectorAll(".btn-minus");
+
+  brtnMinus.forEach(function (elem) {
+    elem.addEventListener("click", function (e) {
+      const targetName = e.target.dataset.name;
+      const score = e.target.dataset.score;
+
+      let paragraph = document.getElementById(score);
+      let targetCollection = circlesCollection[targetName];
+
+      if (targetCollection && targetCollection.length > 0) {
+        let lastElement = targetCollection.pop();
+        lastElement.classList.remove("fade-in");
+        lastElement.classList.add("fade-out");
+        setTimeout(function () {
+          lastElement.remove();
+        }, 1000);
+        const actualScore = circlesCollection[targetName]
+          ? circlesCollection[targetName].length
+          : 0;
+        paragraph.innerText = actualScore;
       }
     });
   });
@@ -78,9 +116,9 @@ window.onload = function () {
       let target = e.target.dataset.name;
       if (circlesCollection[target]) {
         circlesCollection[target].forEach(function (element) {
-          if (element.getAttribute("fill") !== "#000") {
-            element.setAttribute("stroke", "red");
-            element.setAttribute("fill", "red");
+          if (element.getAttribute("fill") !== colorBlack) {
+            element.setAttribute("stroke", colorRed);
+            element.setAttribute("fill", colorRed);
           }
         });
       }
@@ -94,8 +132,8 @@ window.onload = function () {
       let color = e.target.dataset.color;
       if (circlesCollection[target]) {
         circlesCollection[target].forEach(function (element) {
-          if (element.getAttribute("fill") !== "#000") {
-            element.setAttribute("stroke", "#000");
+          if (element.getAttribute("fill") !== colorBlack) {
+            element.setAttribute("stroke", colorBlack);
             element.setAttribute("fill", color);
           }
         });
@@ -115,7 +153,7 @@ window.onload = function () {
     let keys = Object.keys(object);
     keys.forEach(function (team) {
       object[team].forEach(function (e) {
-        if (e.getAttribute("stroke") === "red") {
+        if (e.getAttribute("stroke") === colorRed) {
         } else {
           // svgElement.removeChild(e);
           setTimeout(function () {
@@ -129,13 +167,13 @@ window.onload = function () {
   function createButtons(color, index, title) {
     let newColor = color;
     if (title[index] === "Barbie") {
-      newColor = "#E0218A";
+      newColor = colorBarbie;
     } else if (title[index] === "Shrek") {
-      newColor = "#c5ee7d";
+      newColor = colorShrek;
     }
     if (index < 5) {
       let leftBtnScheme = `<div class="button-wrapper">
-      <p class="team-title" data-name="${
+      <p class="team-title title-left" data-name="${
         title[index]
       }" data-score="score${index}" data-color="${newColor}" style="text-shadow: 1px 1px 0 ${newColor};">${title[
         index
@@ -143,7 +181,12 @@ window.onload = function () {
       <div class="flex">
       <button style="background-color:${newColor}" data-name="${
         title[index]
-      }" data-score="score${index}" data-color="${newColor}" class="btn glow-on-hover">
+      }" data-score="score${index}" data-color="${newColor}" class="btn btn-minus glow-on-hover">
+        -
+      </button>
+      <button style="background-color:${newColor}" data-name="${
+        title[index]
+      }" data-score="score${index}" data-color="${newColor}" class="btn btn-plus glow-on-hover">
         +
       </button>
       <p id="score${index}" class="score">0</p>
@@ -152,7 +195,7 @@ window.onload = function () {
       return leftBtnScheme;
     } else {
       let rightBtnScheme = `<div class="button-wrapper">
-      <p class="team-title" data-name="${
+      <p class="team-title title-right" data-name="${
         title[index]
       }" data-score="score${index}" data-color="${newColor}" style="text-shadow: 1px 1px 0 ${newColor};">${title[
         index
@@ -161,8 +204,13 @@ window.onload = function () {
       <p id="score${index}" class="score">0</p>
       <button style="background-color:${newColor}" data-name="${
         title[index]
-      }" data-score="score${index}" data-color="${newColor}" class="btn glow-on-hover">
+      }" data-score="score${index}" data-color="${newColor}" class="btn btn-plus glow-on-hover">
       +
+      </button>
+      <button style="background-color:${newColor}" data-name="${
+        title[index]
+      }" data-score="score${index}" data-color="${newColor}" class="btn btn-minus glow-on-hover">
+        -
       </button>
       </div>
       </div>`;
@@ -222,9 +270,9 @@ window.onload = function () {
     circle.setAttribute("cy", punktSVG.y);
     // circle.setAttribute("r", 15 + Math.floor(Math.random() * (radius - 15)));
     circle.setAttribute("r", 0);
-    circle.setAttribute("fill", color); // Ustaw kolor wypełnienia okręgu
-    circle.setAttribute("stroke", "#000"); // Ustaw kolor wypełnienia okręgu
-    circle.setAttribute("stroke-width", "0"); // Ustaw kolor wypełnienia okręgu
+    circle.setAttribute("fill", color); // Set circle color fill
+    circle.setAttribute("stroke", colorBlack); // Set circle stroke color
+    circle.setAttribute("stroke-width", "0"); // Set circle stroke width
     // circle.classList.add("fade-in");
     svgElement.appendChild(circle);
     return circle;
@@ -260,8 +308,3 @@ window.onload = function () {
     return array;
   }
 };
-
-// function rand(lowest, highest) {
-//   let adjustedHigh = highest - lowest + 1;
-//   return Math.floor(Math.random() * adjustedHigh) + parseFloat(lowest);
-// }
