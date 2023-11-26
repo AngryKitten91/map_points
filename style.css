@@ -1,3 +1,33 @@
+body {
+  overflow-y: hidden;
+  font-family: "Roboto", sans-serif;
+  background-image: url(./img/pexels-miguel-á-padriñán-255379.jpg);
+  background-size: cover;
+  backdrop-filter: brightness(140%);
+  /* background-color: #000;
+  color: #fff; */
+}
+
+button {
+  color: #000;
+  box-sizing: border-box;
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: none;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.btn {
+  cursor: pointer;
+  font-weight: 900;
+  margin: 10px;
+}
+
+.button-container {
+  z-index: 999999999999999999999999999999999999999;
+}
+
 svg {
   display: block;
   max-height: 100dvh;
@@ -12,6 +42,7 @@ svg {
 circle {
   fill-opacity: 0.7;
 }
+
 .circle-black {
   r: 50px !important;
   fill: #000;
@@ -31,17 +62,6 @@ circle {
 .highlight {
   fill: red;
   stroke: red;
-}
-
-body {
-  overflow-y: hidden;
-  font-family: "Roboto", sans-serif;
-  background-image: url(./img/pexels-miguel-á-padriñán-255379.jpg);
-  /* background-color: gray; */
-  background-size: cover;
-  backdrop-filter: brightness(140%);
-  /* background-color: #000;
-  color: #fff; */
 }
 
 .color-info {
@@ -93,8 +113,11 @@ body {
   top: 0;
 }
 
-.button-container {
-  z-index: 999999999999999999999999999999999999999;
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .flex-start {
@@ -105,13 +128,6 @@ body {
 .flex-end {
   display: flex;
   justify-content: flex-end;
-}
-
-.flex {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
 }
 
 .flex-column {
@@ -129,16 +145,6 @@ body {
   width: 20%;
 }
 
-.button-wrapper {
-  /* padding: 20px 20px; */
-}
-
-.btn {
-  cursor: pointer;
-  font-weight: 900;
-  margin: 10px;
-}
-
 .team-title {
   font-size: 24px;
   font-weight: 900;
@@ -146,19 +152,20 @@ body {
   font-weight: bold;
   margin: 0 15px;
 }
+
 .team-title:hover {
   cursor: pointer;
 }
+
 .title-left {
   text-align: left;
 }
+
 .title-right {
   text-align: right;
 }
 
 .score {
-  /* margin: 0 20px; */
-  /* padding: 0 20px; */
   width: 30px;
   font-weight: bold;
   font-size: 30px;
@@ -170,17 +177,7 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-button {
-  color: #000;
-  box-sizing: border-box;
-  padding: 8px 20px;
-  border-radius: 20px;
-  border: none;
-  font-weight: bolder;
-  font-size: 20px;
-}
-
-/* Animations / keyframes */
+/* * Animations / keyframes */
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0;
