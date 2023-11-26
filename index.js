@@ -26,9 +26,12 @@ window.onload = function () {
 
   let circlesCollection = {};
   let colorDeclaration = {};
+  let finishScreenDisplayed = false;
   const svgElement = document.getElementById("poland"); // Zmień 'mojSvg' na id swojego elementu SVG
   const svgPath = document.querySelectorAll(".path");
+  const finishScreen = document.querySelector(".finish-screen");
   // const btnContainer = document.querySelector(".button-cointainer");
+
   const btnContainerLeft = document.querySelector(".fixed-left");
   const btnContainerRight = document.querySelector(".fixed-right");
 
@@ -60,7 +63,7 @@ window.onload = function () {
       btnContainerRight.innerHTML += newBtn;
     }
   });
-  console.log(colorDeclaration);
+  // console.log(colorDeclaration);
 
   // * ADD EVENT LISTENER TO PLUS BUTTONS
   const btnPlus = document.querySelectorAll(".btn-plus");
@@ -152,10 +155,33 @@ window.onload = function () {
     });
   });
 
-  // * Z attack - color change
+  // * Z - color change
   document.addEventListener("keyup", (event) => {
     if (event.code === "KeyZ") {
       switchColors(circlesCollection);
+    }
+  });
+
+  // * F - finish
+  document.addEventListener("keyup", (event) => {
+    if (event.code === "KeyF") {
+      if (finishScreenDisplayed) {
+        finishScreenDisplayed = false;
+        finishScreen.innerHTML = "";
+      } else {
+        let msg =
+          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus consectetur asperiores cum, est ad amet molestiae voluptatum quae.";
+        let finalScreen = `
+        <div class="logo-container fade-in flex">
+          <div style="width:500px;text-align:center;">
+            <img class="block" src="img/logo-placeholder.png" alt="" srcset="" />
+            <p class="text-center">${msg}</p>
+          </div
+        </div>
+        `;
+        finishScreen.innerHTML += finalScreen;
+        finishScreenDisplayed = true;
+      }
     }
   });
 
