@@ -46,6 +46,7 @@ window.onload = function () {
   const sideButtonLimit = 5;
   const limitX = 1000;
   const limitY = 948;
+  const circleSize = 30;
   const safeBuffer = 50;
 
   // svgElement.addEventListener("click", function (e) {
@@ -289,7 +290,7 @@ window.onload = function () {
         let check = isPointInsideObject(elem, point);
         if (check === true) {
           isCoordRight = true;
-          let okCircle = createCircle(svgElement, point, 30, color);
+          let okCircle = createCircle(svgElement, point, circleSize, color);
 
           if (circlesCollection[event.target.dataset.name]) {
             circlesCollection[event.target.dataset.name].push(okCircle);

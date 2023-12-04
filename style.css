@@ -88,7 +88,7 @@ circle {
 }
 
 .circle-regular {
-  r: 20px;
+  r: 15px;
   stroke-width: 5;
   transition: ease 1s;
   animation-fill-mode: forwards;
