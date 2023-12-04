@@ -42,7 +42,7 @@ window.onload = function () {
   const addButtonColor = "#28B463";
   const minusButtonColor = "#E74C3C";
 
-  const pointLimit = 15;
+  const pointLimit = 100;
   const sideButtonLimit = 5;
   const limitX = 1000;
   const limitY = 948;
@@ -169,17 +169,25 @@ window.onload = function () {
         finishScreenDisplayed = false;
         finishScreen.innerHTML = "";
       } else {
-        let msg =
-          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus consectetur asperiores cum, est ad amet molestiae voluptatum quae.";
         let finalScreen = `
-        <div class="logo-container fade-in flex">
-          <div style="width:500px;text-align:center;">
-            <img class="block" src="img/logo-placeholder.png" alt="" srcset="" />
-            <p class="text-center">${msg}</p>
-          </div
+        <div class="logo-container fade-in flex flex-align-content-center">
+            <img class="block img-responsive" src="img/logo-placeholder.png" alt="" srcset="" />
         </div>
         `;
         finishScreen.innerHTML += finalScreen;
+        const container = document.querySelector(".logo-container");
+        // const container = document.querySelector(".finish-screen");
+        const fireworks = new Fireworks.default(container);
+        setTimeout(function () {
+          // fireworks.start();
+          fireworks.launch(20);
+          setTimeout(function () {
+            fireworks.launch(20);
+            setTimeout(function () {
+              fireworks.launch(20);
+            }, 3000);
+          }, 3000);
+        }, 3000);
         finishScreenDisplayed = true;
       }
     }
