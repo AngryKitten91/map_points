@@ -26,6 +26,7 @@ window.onload = function () {
 
   let circlesCollection = {};
   let colorDeclaration = {};
+  let blackCircles = [];
   let finishScreenDisplayed = false;
   const svgElement = document.getElementById("poland"); // Zmień 'mojSvg' na id swojego elementu SVG
   const svgPath = document.querySelectorAll(".path");
@@ -160,6 +161,13 @@ window.onload = function () {
   document.addEventListener("keyup", (event) => {
     if (event.code === "KeyZ") {
       switchColors(circlesCollection);
+      console.log(circlesCollection);
+      console.log(blackCircles);
+      circlesCollection = {};
+      let score = document.querySelectorAll(".score");
+      score.forEach(function (elem) {
+        elem.innerText = 0;
+      });
     }
   });
 
@@ -206,6 +214,7 @@ window.onload = function () {
             e.setAttribute("fill", colorBlack);
             e.classList.remove("highlight");
             e.classList.add("circle-black");
+            blackCircles.push(e);
           }, rand(500, 1000));
         } else {
           // svgElement.removeChild(e);
