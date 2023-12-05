@@ -84,6 +84,7 @@ window.onload = function () {
           ? circlesCollection[name].length
           : 0;
         paragraph.innerText = actualScore;
+        paragraph.classList.remove("red");
         svgElement.lastChild.classList.add("circle-regular");
         // let value = Number(paragraph.innerText) + 1;
         // console.log(value);
@@ -166,6 +167,10 @@ window.onload = function () {
       circlesCollection = {};
       let score = document.querySelectorAll(".score");
       score.forEach(function (elem) {
+        if (+elem.innerText) {
+          // console.log(!!+elem.innerText, elem.innerText);
+          elem.classList.add("red");
+        }
         elem.innerText = 0;
       });
     }
