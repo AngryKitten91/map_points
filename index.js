@@ -161,8 +161,8 @@ window.onload = function () {
   document.addEventListener("keyup", (event) => {
     if (event.code === "KeyZ") {
       switchColors(circlesCollection);
-      console.log(circlesCollection);
-      console.log(blackCircles);
+      // console.log(circlesCollection);
+      // console.log(blackCircles);
       circlesCollection = {};
       let score = document.querySelectorAll(".score");
       score.forEach(function (elem) {
