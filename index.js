@@ -55,9 +55,9 @@ window.onload = function () {
   // });
 
   // * CREATE BUTTONS
-  let titles = shuffle(teamNames);
+  // let titles = shuffle(teamNames);
   colorArray.forEach(function (e, i) {
-    const newBtn = createButtons(e, i, titles);
+    const newBtn = createButtons(e, i, teamNames);
     if (i < sideButtonLimit) {
       btnContainerLeft.innerHTML += newBtn;
     } else {
