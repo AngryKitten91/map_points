@@ -180,7 +180,7 @@ window.onload = function () {
       } else {
         let finalScreen = `
         <div class="logo-container fade-in flex flex-align-content-center">
-            <img class="block img-responsive" src="img/logo-placeholder.png" alt="" srcset="" />
+            <img class="block img-responsive" src="img/logo_final.jpg" alt="" srcset="" />
         </div>
         `;
         finishScreen.innerHTML += finalScreen;
