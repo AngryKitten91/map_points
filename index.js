@@ -1,11 +1,11 @@
 window.onload = function () {
   const colorArray = [
-    "#ebd407", // Ciemna czerwień krwi
+    "#d1a402", // Ciemna czerwień krwi
     "#575757", // Mroczny fiolet
     "#02b0f5", // srebrny
     "#02a12c", // różowy
     "#ba0000", // Głęboka czerń
-    "#7402a1", // Mroczne złoto
+    "#ebd407", // Mroczne złoto
     "#f57002", // Niebieski północnej nocy
     "#f502ed", // Ciemny burgund
   ];
@@ -15,7 +15,7 @@ window.onload = function () {
     "NIEBIESKI",
     "ZIELONY",
     "CZERWONY",
-    "FIOLETOWY",
+    "ŻÓŁTY",
     "POMARAŃCZ",
     "RÓŻOWY",
   ];
