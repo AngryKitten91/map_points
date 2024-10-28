@@ -16,7 +16,7 @@ window.onload = function () {
     "ZIELONY",
     "CZERWONY",
     "FIOLETOWY",
-    "POMARZŃCZ",
+    "POMARAŃCZ",
     "RÓŻOWY",
   ];
 
