@@ -1,23 +1,23 @@
 window.onload = function () {
   const colorArray = [
-    "#9e0142",
-    "#d53e4f",
-    "#f46d43",
-    "#fdae61",
-    "#fee08b",
-    "#e6f598",
-    "#abdda4",
-    "#66c2a5",
+    "#ba0000", // Ciemna czerwień krwi
+    "#4B0082", // Mroczny fiolet
+    "#575757", // Mglisty szary
+    "#f3f7bc", // Blady kościany
+    "#000000", // Głęboka czerń
+    "#ebd407", // Mroczne złoto
+    "#323ca8", // Niebieski północnej nocy
+    "#590139", // Ciemny burgund
   ];
   const teamNames = [
-    "Manhattan",
-    "Chinatown",
-    "Fargo",
-    "Zodiac",
-    "Django",
-    "Barbie",
-    "Ohio",
-    "Amadeus",
+    "CZERWIEŃ",
+    "FIOLET",
+    "SZARY",
+    "KOŚCIANY",
+    "CZERŃ",
+    "ZŁOTO",
+    "NIEBIESKI",
+    "BURGUND",
   ];
 
   let circlesCollection = {};
@@ -34,8 +34,8 @@ window.onload = function () {
 
   const colorBlack = "#000";
   const colorRed = "red";
-  const colorShrek = "#c5ee7d";
-  const colorBarbie = "#E0218A";
+  // const colorShrek = "#c5ee7d";
+  // const colorBarbie = "#E0218A";
   const addButtonColor = "#28B463";
   const minusButtonColor = "#E74C3C";
 
@@ -226,11 +226,11 @@ window.onload = function () {
 
   function createButtons(color, index, title) {
     let newColor = color;
-    if (title[index] === "Barbie") {
-      newColor = colorBarbie;
-    } else if (title[index] === "Shrek") {
-      newColor = colorShrek;
-    }
+    // if (title[index] === "Barbie") {
+    //   newColor = colorBarbie;
+    // } else if (title[index] === "Shrek") {
+    //   newColor = colorShrek;
+    // }
     colorDeclaration[title[index]] = newColor;
     if (index < sideButtonLimit) {
       let leftBtnScheme = `<div class="button-wrapper">

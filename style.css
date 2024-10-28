@@ -1,9 +1,24 @@
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(./img/haloween_bg.jpg);
+  filter: opacity(0.2);
+  background-size: cover;
+  z-index: -999999999999999999999999999999;
+}
+
 body {
+  position: relative;
   overflow-y: hidden;
   font-family: "Roboto", sans-serif;
-  background-image: url(./img/pexels-miguel-á-padriñán-255379.jpg);
+  /* background-image: url(./img/haloween_bg.jpg);
   background-size: cover;
-  backdrop-filter: brightness(140%);
+  backdrop-filter: brightness(140%); */
+  /* backdrop-filter: opacity(0.2); */
   /* background-color: #000;
   color: #fff; */
 }
