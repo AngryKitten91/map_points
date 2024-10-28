@@ -8,8 +8,6 @@ window.onload = function () {
     "#e6f598",
     "#abdda4",
     "#66c2a5",
-    "#3288bd",
-    "#5e4fa2",
   ];
   const teamNames = [
     "Manhattan",
@@ -20,8 +18,6 @@ window.onload = function () {
     "Barbie",
     "Ohio",
     "Amadeus",
-    "Rebecca",
-    "Shrek",
   ];
 
   let circlesCollection = {};
@@ -44,7 +40,7 @@ window.onload = function () {
   const minusButtonColor = "#E74C3C";
 
   const pointLimit = 100;
-  const sideButtonLimit = 5;
+  const sideButtonLimit = 4;
   const limitX = 1000;
   const limitY = 948;
   const circleSize = 30;
@@ -236,7 +232,7 @@ window.onload = function () {
       newColor = colorShrek;
     }
     colorDeclaration[title[index]] = newColor;
-    if (index < 5) {
+    if (index < sideButtonLimit) {
       let leftBtnScheme = `<div class="button-wrapper">
       <div class="flex-start">
       <div style="background-color:${newColor}" class="color-info "></div>
