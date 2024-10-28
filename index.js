@@ -2,7 +2,7 @@ window.onload = function () {
   const colorArray = [
     "#ebd407", // Ciemna czerwień krwi
     "#575757", // Mroczny fiolet
-    "#323ca8", // srebrny
+    "#02b0f5", // srebrny
     "#02a12c", // różowy
     "#ba0000", // Głęboka czerń
     "#7402a1", // Mroczne złoto
