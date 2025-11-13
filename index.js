@@ -5,8 +5,8 @@ window.onload = function () {
     "#02b0f5", // srebrny
     "#02a12c", // różowy
     "#ba0000", // Głęboka czerń
-    "#ebd407", // Mroczne złoto
-    "#f57002", // Niebieski północnej nocy
+    // "#ebd407", // Mroczne złoto
+    // "#f57002", // Niebieski północnej nocy
     // "#f502ed", // Ciemny burgund
   ];
   const teamNames = [
@@ -15,9 +15,9 @@ window.onload = function () {
     "NIEBIESKI",
     "ZIELONY",
     "CZERWONY",
-    "ŻÓŁTY",
-    "POMARAŃCZ",
-    "RÓŻOWY",
+    // "ŻÓŁTY",
+    // "POMARAŃCZ",
+    // "RÓŻOWY",
   ];
 
   let circlesCollection = {};
@@ -40,7 +40,7 @@ window.onload = function () {
   const minusButtonColor = "#E74C3C";
 
   const pointLimit = 100;
-  const sideButtonLimit = 4;
+  const sideButtonLimit = 3;
   const limitX = 1000;
   const limitY = 948;
   const circleSize = 30;
