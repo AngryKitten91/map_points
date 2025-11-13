@@ -7,7 +7,7 @@ window.onload = function () {
     "#ba0000", // Głęboka czerń
     "#ebd407", // Mroczne złoto
     "#f57002", // Niebieski północnej nocy
-    "#f502ed", // Ciemny burgund
+    // "#f502ed", // Ciemny burgund
   ];
   const teamNames = [
     "ZŁOTY",
