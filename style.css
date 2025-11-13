@@ -55,9 +55,27 @@ canvas {
   z-index: 9999999999999999999999999999999999999999999999999999999999999999;
   background-color: #fff;
 }
+.logo-container_l {
+  width: 100dvw;
+  /* margin: 0 auto; */
+  height: 100dvh;
+  display: flex;
+  position: fixed;
+  align-items: center; /* pionowo */
+  justify-content: center;
+  top: 0;
+  left: 0;
+  z-index: -100;
+
+  /* background-color: #fff; */
+}
+
+.logo-container_l img {
+  z-index: 9999999999999999999999999999999999999999999999999999999999999999;
+}
 
 .display-none {
-  /* display: /none; */
+  display: none;
   /* transition: opacity 3s ease-out; */
   /* opacity: 0; */
   /* height: 0; */
@@ -164,7 +182,7 @@ circle {
 }
 
 .logo-mini {
-  padding: 70px 70px 40px 70px!important;
+  padding: 20px 20px 40px 20px !important;
 }
 
 .fixed {
@@ -289,13 +307,13 @@ circle {
   -moz-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  animation-duration: 1s;
+  -webkit-animation-duration: 0.5ss;
+  -moz-animation-duration: 0.5ss;
+  animation-duration: 0.5s;
 
-  -webkit-animation-delay: 1s;
+  /* -webkit-animation-delay: 1s;
   -moz-animation-delay: 1s;
-  animation-delay: 1s;
+  animation-delay: 1s; */
 }
 
 /* Animations / keyframes */

@@ -172,6 +172,13 @@ window.onload = function () {
     }
   });
 
+  // * X - display competition
+  document.addEventListener("keyup", (event) => {
+    if (event.code === "KeyX") {
+      document.querySelector("#competition").classList.toggle("display-none");
+    }
+  });
+
   // * F - finish
   document.addEventListener("keyup", (event) => {
     if (event.code === "KeyF") {
