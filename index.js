@@ -1,23 +1,23 @@
 window.onload = function () {
   const colorArray = [
-    "#d1a402", // Ciemna czerwień krwi
-    "#575757", // Mroczny fiolet
-    "#02b0f5", // srebrny
+    "#f502ed", // Ciemny burgund
+    "#ebd407", // Mroczne złoto
     "#02a12c", // różowy
-    "#ba0000", // Głęboka czerń
-    // "#ebd407", // Mroczne złoto
+    "#02b0f5", // srebrny
+    "#ff0000", // Głęboka czerń
+    // "#d1a402", // Ciemna czerwień krwi
+    // "#575757", // Mroczny fiolet
     // "#f57002", // Niebieski północnej nocy
-    // "#f502ed", // Ciemny burgund
   ];
   const teamNames = [
-    "ZŁOTY",
-    "SREBRNY",
-    "NIEBIESKI",
+    "RÓŻOWY",
+    "ŻÓŁTY",
     "ZIELONY",
+    "NIEBIESKI",
     "CZERWONY",
-    // "ŻÓŁTY",
+    // "ZŁOTY",
+    // "SREBRNY",
     // "POMARAŃCZ",
-    // "RÓŻOWY",
   ];
 
   let circlesCollection = {};
