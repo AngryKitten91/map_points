@@ -195,16 +195,26 @@ window.onload = function () {
         const container = document.querySelector(".logo-container");
         // const container = document.querySelector(".finish-screen");
         const fireworks = new Fireworks.default(container);
-        setTimeout(function () {
-          // fireworks.start();
-          fireworks.launch(20);
-          setTimeout(function () {
-            fireworks.launch(20);
-            setTimeout(function () {
-              fireworks.launch(20);
-            }, 3000);
-          }, 3000);
-        }, 3000);
+
+        function loopedFunction() {
+          fireworks.launch(Math.floor(Math.random() * 30) + 1);
+
+          setTimeout(() => {
+            loopedFunction(); // wywołanie kolejnego cyklu po opóźnieniu
+          }, Math.floor(Math.random() * 3000) + 1000); // opóźnienie 1 sekunda
+        }
+        loopedFunction();
+
+        // setTimeout(function () {
+        //   // fireworks.start();
+        //   fireworks.launch(20);
+        //   setTimeout(function () {
+        //     fireworks.launch(20);
+        //     setTimeout(function () {
+        //       fireworks.launch(20);
+        //     }, 1000);
+        //   }, 1000);
+        // }, 1000);
         finishScreenDisplayed = true;
       }
     }
