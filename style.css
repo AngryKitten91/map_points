@@ -209,7 +209,9 @@ circle {
 .flex-column {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
+  justify-content: center;
+  gap: 5vh;
 }
 
 .flex-align-content-center {
