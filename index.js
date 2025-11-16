@@ -1,20 +1,20 @@
 window.onload = function () {
   const colorArray = [
-    "#f502ed", // Ciemny burgund
-    "#ebd407", // Mroczne złoto
     "#02a12c", // różowy
-    "#02b0f5", // srebrny
+    "#ebd407", // Mroczne złoto
     "#ff0000", // Głęboka czerń
+    "#02b0f5", // srebrny
+    // "#f502ed", // Ciemny burgund
     // "#d1a402", // Ciemna czerwień krwi
     // "#575757", // Mroczny fiolet
     // "#f57002", // Niebieski północnej nocy
   ];
   const teamNames = [
-    "RÓŻOWY",
-    "ŻÓŁTY",
     "ZIELONY",
-    "NIEBIESKI",
+    "ŻÓŁTY",
     "CZERWONY",
+    "NIEBIESKI",
+    // "RÓŻOWY",
     // "ZŁOTY",
     // "SREBRNY",
     // "POMARAŃCZ",
@@ -40,7 +40,7 @@ window.onload = function () {
   const minusButtonColor = "#E74C3C";
 
   const pointLimit = 100;
-  const sideButtonLimit = 3;
+  const sideButtonLimit = 2;
   const limitX = 1000;
   const limitY = 948;
   const circleSize = 30;
